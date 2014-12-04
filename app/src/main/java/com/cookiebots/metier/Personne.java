@@ -6,17 +6,6 @@ public class Personne {
     private String nom;
     private String prenom;
 
-    public Personne() {
-
-    }
-
-    public Personne(String nom, String prenom, int num) {
-        this.nom = nom;
-        this.prenom = prenom;
-
-        this.num = num;
-    }
-
     public void setNum(int num) {
         this.num = num;
     }

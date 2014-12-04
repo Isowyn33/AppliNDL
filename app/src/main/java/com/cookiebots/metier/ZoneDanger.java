@@ -1,17 +1,9 @@
 package com.cookiebots.metier;
 
-public class Zone {
+public class ZoneDanger {
     private Lieu centre;
     private int rayon;
     private String designation;
-
-    public Zone() {}
-
-    public Zone(int rayon, Lieu centre, String designation) {
-        this.rayon = rayon;
-        this.centre = centre;
-        this.designation = designation;
-    }
 
     public void setCentre(Lieu centre) {
         this.centre = centre;

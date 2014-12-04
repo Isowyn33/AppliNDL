@@ -3,7 +3,7 @@ package com.cookiebots.parsers;
 
 import android.util.Log;
 
-import com.cookiebots.metier.Zone;
+import com.cookiebots.metier.ZoneDanger;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
@@ -20,14 +20,14 @@ import javax.xml.parsers.SAXParserFactory;
 
 import tools.HttpMethodeGetRunnable;
 
-public class ParserZone extends DefaultHandler{
-    private List<Zone> listZones;
-    private Zone temp;
+public class ParserZoneDanger extends DefaultHandler{
+    private List<ZoneDanger> listZoneDangers;
+    private ZoneDanger temp;
     private String current;
 
     private String adresse = "a implementer";
 
-    public List<Zone> getListZone(){
+    public List<ZoneDanger> getListZone(){
 
         try{
             // On récupère un SaxParser depuis le SaxParserFactory
@@ -48,13 +48,13 @@ public class ParserZone extends DefaultHandler{
             }
         }
         catch(Exception e) {}
-        if(listZones.size() != 0)
-            return listZones;
+        if(listZoneDangers.size() != 0)
+            return listZoneDangers;
         else
             return null;
     }
 
-    public Zone getZone(String nom){
+    public ZoneDanger getZone(String nom){
 
         try{
             // On récupère un SaxParser depuis le SaxParserFactory
@@ -77,15 +77,15 @@ public class ParserZone extends DefaultHandler{
             //Toast.makeText(context, "Erreur", Toast.LENGTH_LONG).show();
             Log.e("BIO", e.getMessage());
         }
-        if(listZones != null && listZones.size() != 0)
-            return listZones.get(0);
+        if(listZoneDangers != null && listZoneDangers.size() != 0)
+            return listZoneDangers.get(0);
         else
             return null;
     }
 
     @Override
     public void startDocument() throws SAXException {
-        listZones = new ArrayList<Zone>();
+        listZoneDangers = new ArrayList<ZoneDanger>();
     }
     @Override
     public void endDocument()throws SAXException{
@@ -93,8 +93,8 @@ public class ParserZone extends DefaultHandler{
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
-        if(localName.equalsIgnoreCase("Zone")){
-            temp = new Zone();
+        if(localName.equalsIgnoreCase("ZoneDanger")){
+            temp = new ZoneDanger();
         }
     }
 

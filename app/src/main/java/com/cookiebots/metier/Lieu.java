@@ -4,14 +4,7 @@ public class Lieu {
     private int latitude;
     private int longitude;
     private String nom;
-
-    public Lieu() {}
-
-    public Lieu(int latitude, int longitude, String nom) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.nom = nom;
-    }
+    private TypeLieu type;
 
     public int getLatitude() {
         return latitude;
@@ -35,5 +28,13 @@ public class Lieu {
 
     public void setLongitude(int longitude) {
         this.longitude = longitude;
+    }
+
+    public TypeLieu getType() {
+        return type;
+    }
+
+    public void setType(TypeLieu type) {
+        this.type = type;
     }
 }
