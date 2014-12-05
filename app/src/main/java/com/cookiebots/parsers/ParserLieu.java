@@ -94,6 +94,9 @@ public class ParserLieu extends DefaultHandler {
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+        if(localName.equalsIgnoreCase("Lieux")){
+            listLieux = new ArrayList<Lieu>();
+        }
         if(localName.equalsIgnoreCase("Lieu")){
             temp = new Lieu();
         }
