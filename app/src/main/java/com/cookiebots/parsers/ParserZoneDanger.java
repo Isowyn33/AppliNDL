@@ -3,6 +3,7 @@ package com.cookiebots.parsers;
 
 import android.util.Log;
 
+import com.cookiebots.metier.Lieu;
 import com.cookiebots.metier.ZoneDanger;
 
 import org.xml.sax.Attributes;
@@ -95,6 +96,9 @@ public class ParserZoneDanger extends DefaultHandler{
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
         if(localName.equalsIgnoreCase("ZoneDanger")){
             temp = new ZoneDanger();
+        }
+        if(localName.equalsIgnoreCase("ZonesDanger")){
+            listZoneDangers = new ArrayList<ZoneDanger>();
         }
     }
 

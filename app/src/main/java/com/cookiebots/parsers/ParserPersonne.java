@@ -2,6 +2,7 @@ package com.cookiebots.parsers;
 
 import android.util.Log;
 
+import com.cookiebots.metier.Lieu;
 import com.cookiebots.metier.Personne;
 
 import java.io.InputStream;
@@ -94,6 +95,9 @@ public class ParserPersonne extends DefaultHandler {
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
         if(localName.equalsIgnoreCase("Personne")){
             temp = new Personne();
+        }
+        if(localName.equalsIgnoreCase("Personnes")){
+            listPersonnes = new ArrayList<Personne>();
         }
     }
 
