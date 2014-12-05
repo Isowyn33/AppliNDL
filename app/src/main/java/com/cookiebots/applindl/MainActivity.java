@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.telephony.gsm.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.cookiebots.metier.Lieu;
 import com.cookiebots.metier.Personne;
@@ -24,7 +24,6 @@ import com.google.android.gms.maps.MapFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class MainActivity extends Activity {
@@ -84,6 +83,21 @@ public class MainActivity extends Activity {
         });
     }
 
+    protected void sendSMS(String recipient) {
+        try {
+            android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();
+            ArrayList<String> msg = smsManager.divideMessage(recipient);
+            smsManager.sendMultipartTextMessage("+33666379494", null, msg, null, null);
+            Toast.makeText(getApplicationContext(), "SMS Sent!",
+                    Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(),
+                    "SMS faild, please try again later!",
+                    Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -100,7 +114,9 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_param) {
+        if (id == R.id.action_SOS) {
+            String message = String.format("latitude = %f longitude = %f",getPosition().getLatitude(), getPosition().getLongitude());
+            sendSMS(message);
             return true;
         }
 
