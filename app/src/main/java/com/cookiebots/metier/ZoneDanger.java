@@ -3,10 +3,15 @@ package com.cookiebots.metier;
 import java.util.List;
 
 public class ZoneDanger {
+    private int id;
     private Lieu centre;
     private int rayon;
     private String designation;
     private List<Dangers> dangers;
+
+    public int getID(){return id;}
+
+    public void setId(int id){this.id = id;}
 
     public void setCentre(Lieu centre) {
         this.centre = centre;
