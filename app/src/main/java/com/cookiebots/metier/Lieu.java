@@ -35,4 +35,5 @@ public class Lieu {
     public List<String> getlistTypes() { return listTypes; }
 
     public void setlistTypes(List<String> listTypes) { this.listTypes = listTypes; }
+
 }
