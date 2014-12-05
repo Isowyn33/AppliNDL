@@ -1,6 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_param" android:title="@string/action_param"
-        android:orderInCategory="100" android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_SOS" android:title="@string/action_SOS"
+        android:orderInCategory="100" android:showAsAction="never" />
+
+
 
 </menu>
