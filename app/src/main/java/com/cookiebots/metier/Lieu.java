@@ -4,7 +4,7 @@ public class Lieu {
     private int latitude;
     private int longitude;
     private String nom;
-    private TypeLieu type;
+    private String type;
 
     public int getLatitude() {
         return latitude;
@@ -30,11 +30,7 @@ public class Lieu {
         this.longitude = longitude;
     }
 
-    public TypeLieu getType() {
-        return type;
-    }
+    public String getType() { return type; }
 
-    public void setType(TypeLieu type) {
-        this.type = type;
-    }
+    public void setType(String type) { this.type = type; }
 }

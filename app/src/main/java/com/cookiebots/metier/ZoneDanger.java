@@ -1,9 +1,12 @@
 package com.cookiebots.metier;
 
+import java.util.List;
+
 public class ZoneDanger {
     private Lieu centre;
     private int rayon;
     private String designation;
+    private List<Dangers> dangers;
 
     public void setCentre(Lieu centre) {
         this.centre = centre;
@@ -27,5 +30,13 @@ public class ZoneDanger {
 
     public int getRayon() {
         return rayon;
+    }
+
+    public List<Dangers> getDangers() {
+        return dangers;
+    }
+
+    public void setDangers(List<Dangers> dangers) {
+        this.dangers = dangers;
     }
 }

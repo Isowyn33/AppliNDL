@@ -1,6 +1,6 @@
 package com.cookiebots.metier;
 
-public class TypeLieu {
+public class Dangers {
     private String label;
 
     public String getLabel() {
