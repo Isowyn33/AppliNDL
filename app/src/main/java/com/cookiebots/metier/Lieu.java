@@ -1,10 +1,12 @@
 package com.cookiebots.metier;
 
+import java.util.List;
+
 public class Lieu {
     private int latitude;
     private int longitude;
     private String nom;
-    private String type;
+    private List<String> listTypes;
 
     public int getLatitude() {
         return latitude;
@@ -30,7 +32,7 @@ public class Lieu {
         this.longitude = longitude;
     }
 
-    public String getType() { return type; }
+    public List<String> getlistTypes() { return listTypes; }
 
-    public void setType(String type) { this.type = type; }
+    public void setlistTypes(List<String> listTypes) { this.listTypes = listTypes; }
 }
