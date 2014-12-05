@@ -101,7 +101,29 @@ public class ParserZoneDanger extends DefaultHandler{
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
             throws SAXException {
-
+        if(localName.equalsIgnoreCase("zonedanger")) {
+            listZoneDangers.add(temp);
+        }
+        else {
+            if (localName.equalsIgnoreCase("id")) {
+                temp.setId(Integer.parseInt(current));
+            }
+            if (localName.equalsIgnoreCase("rayon")) {
+                temp.setRayon(Integer.parseInt(current));
+            }
+            if (localName.equalsIgnoreCase("longitude")) {
+                temp.setLongitude(Float.parseFloat(current));
+            }
+            if (localName.equalsIgnoreCase("latitude")) {
+                temp.setLatitude(Float.parseFloat(current));
+            }
+            if(localName.equalsIgnoreCase("label")) {
+                temp.setdanger(current);
+            }
+            if (localName.equalsIgnoreCase("deignation")) {
+                temp.setDesignation(current);
+            }
+        }
     }
     @Override
     public void characters(char ch[], int start, int length) {

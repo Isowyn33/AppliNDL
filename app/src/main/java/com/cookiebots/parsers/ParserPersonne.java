@@ -100,6 +100,23 @@ public class ParserPersonne extends DefaultHandler {
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
             throws SAXException {
+        if(localName.equalsIgnoreCase("lieu")) {
+            listPersonnes.add(temp);
+        }
+        else {
+            if (localName.equalsIgnoreCase("id")) {
+                temp.setId(Integer.parseInt(current));
+            }
+            if (localName.equalsIgnoreCase("nom")) {
+                temp.setNom(current);
+            }
+            if (localName.equalsIgnoreCase("prenom")) {
+                temp.setPrenom(current);
+            }
+            if (localName.equalsIgnoreCase("label")) {
+                temp.setSante(current);
+            }
+        }
 
     }
     @Override

@@ -1,21 +1,22 @@
 package com.cookiebots.metier;
 
-import java.util.List;
-
 public class ZoneDanger {
     private int id;
-    private Lieu centre;
+    private float latitude;
+    private float longitude;
     private int rayon;
     private String designation;
-    private List<Dangers> dangers;
+    private String danger;
 
     public int getID(){return id;}
 
     public void setId(int id){this.id = id;}
 
-    public void setCentre(Lieu centre) {
-        this.centre = centre;
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
     }
+
+    public void setLatitude(float latitude) { this.latitude = latitude; }
 
     public void setRayon(int rayon) {
         this.rayon = rayon;
@@ -29,19 +30,23 @@ public class ZoneDanger {
         return designation;
     }
 
-    public Lieu getCentre() {
-        return centre;
+    public float getLongitude() {
+        return longitude;
+    }
+
+    public float getLatitude() {
+        return latitude;
     }
 
     public int getRayon() {
         return rayon;
     }
 
-    public List<Dangers> getDangers() {
-        return dangers;
+    public String getdanger() {
+        return danger;
     }
 
-    public void setDangers(List<Dangers> dangers) {
-        this.dangers = dangers;
+    public void setdanger(String danger) {
+        this.danger = danger;
     }
 }
