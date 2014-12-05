@@ -3,10 +3,15 @@ package com.cookiebots.metier;
 import java.util.List;
 
 public class Lieu {
+    private int id;
     private int latitude;
     private int longitude;
     private String nom;
     private List<String> listTypes;
+
+    public int getID(){return id;}
+
+    public void setId(int id){this.id = id;}
 
     public int getLatitude() {
         return latitude;

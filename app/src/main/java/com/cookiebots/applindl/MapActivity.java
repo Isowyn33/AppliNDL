@@ -1,15 +1,18 @@
 package com.cookiebots.applindl;
 
 import android.app.Activity;
+import android.location.Location;
 import android.os.Bundle;
 
+import com.cookiebots.metier.Lieu;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.List;
 
 /**
  * Created by Alexandre on 04/12/2014.
@@ -45,4 +48,6 @@ public class MapActivity extends Activity {
         circle.strokeWidth(width);
         return circle;
     }
+
+
 }
