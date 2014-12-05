@@ -44,7 +44,14 @@ public class MainActivity extends Activity {
         List<Personne> lstP = pP.getListPersonne();
 
         ParserLieu pL = new ParserLieu();
-        List<Lieu> lstL = pL.getListLieux();
+        List<Lieu> lstL;
+        if(pL.getListLieux() == null){
+            lstL = pL.getListLieux();
+            lstL.add(0, new Lieu());
+        }
+        else {
+            lstL = pL.getListLieux();
+        }
 
         Lieu lP = lieuProche(lstL);
 
