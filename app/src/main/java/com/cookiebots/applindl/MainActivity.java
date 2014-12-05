@@ -30,6 +30,7 @@ import java.util.Map;
 public class MainActivity extends Activity {
 
     public ListView LVClickable;
+    final String EXTRA_LISTINFO = "list_info";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,9 @@ public class MainActivity extends Activity {
         ZoneDanger zD = dangerProche(lstZD);
 
         ArrayList<String> myStringArray1 = new ArrayList<String>();
-        //TODO: Ajouter chaque Item
-        myStringArray1.add();   //Info
-        myStringArray1.add(zD.getL); //Danger
+        myStringArray1.add(messageInfo(zD));
+        myStringArray1.add(zD.getdanger());
         myStringArray1.add(lP.getNom());
-        myStringArray1.add("vaccins à effectuer");   //Vaccin
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.activity_main, myStringArray1);
         LVClickable.setAdapter(adapter);
 
@@ -64,8 +63,6 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 1:
-                        Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                        startActivity(intent);
                         break;
                     case 2:
                         Intent intent2 = new Intent(MainActivity.this, MapActivity.class);
@@ -109,7 +106,7 @@ public class MainActivity extends Activity {
 
     public Location getPosition(){
         GoogleMap map = ((MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map)).getMap();;
+                .findFragmentById(R.id.map)).getMap();
         return map.getMyLocation();
     }
 
@@ -131,16 +128,29 @@ public class MainActivity extends Activity {
     public ZoneDanger dangerProche(List<ZoneDanger> lstZD){
         float distance = Float.MAX_VALUE;
         ZoneDanger zoneD = new ZoneDanger();
-        Lieu lieu = zoneD.getCentre();
         for(ZoneDanger zd : lstZD){
             Location temp = new Location("temp");
-            temp.setLatitude(lieu.getLatitude());
-            temp.setLongitude(lieu.getLongitude());
+            temp.setLatitude(zd.getLatitude());
+            temp.setLongitude(zd.getLongitude());
             if(getPosition().distanceTo(temp) < distance){
                 distance = getPosition().distanceTo(temp);
                 zoneD = zd;
             }
         }
         return zoneD;
+    }
+
+    public String messageInfo(ZoneDanger zd){
+        String message = "";
+        Location temp = new Location("temp");
+        temp.setLatitude(zd.getLatitude());
+        temp.setLongitude(zd.getLongitude());
+        if(getPosition().distanceTo(temp) < zd.getRayon()){
+            message = "Attention vous vous trouvez actuellement en zone de dangers, courez!!!";
+        }
+        else{
+            message = "Vous êtes quand même dans la merde ^^";
+        }
+        return message;
     }
 }
