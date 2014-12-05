@@ -4,5 +4,8 @@
     <string name="app_name">AppliNDL</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_param">Paramètres</string>
+    <string name="title_activity_infos">InfosActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_vaccinations">VaccinationsActivity</string>
 
 </resources>
