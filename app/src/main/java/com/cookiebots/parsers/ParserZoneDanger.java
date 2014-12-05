@@ -25,7 +25,7 @@ public class ParserZoneDanger extends DefaultHandler{
     private ZoneDanger temp;
     private String current;
 
-    private String adresse = "a implementer";
+    private String adresse = "http://alexandreplaitant.ddns.net/ndl/";
 
     public List<ZoneDanger> getListZone(){
 
@@ -38,7 +38,7 @@ public class ParserZoneDanger extends DefaultHandler{
             readerxml.setContentHandler(this);
 
             // On récupère l'objet InputStream depuis la méthode ci-dessous définie
-            InputStream is = new HttpMethodeGetRunnable().getInputStream("a implementer");
+            InputStream is = new HttpMethodeGetRunnable().getInputStream("zonnedanger.php");
             // Si l'objet n'est pas null
             if(is != null){
                 // On le parse avec notre readerxml (appuyé par notre parserxml)
