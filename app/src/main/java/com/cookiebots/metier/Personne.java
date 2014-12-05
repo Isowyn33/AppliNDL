@@ -7,6 +7,16 @@ public class Personne {
     private String nom;
     private String prenom;
 
+    public String getSante() {
+        return sante;
+    }
+
+    public void setSante(String sante) {
+        this.sante = sante;
+    }
+
+    private String sante;
+
     public int getID(){return id;}
 
     public void setId(int id){this.id = id;}

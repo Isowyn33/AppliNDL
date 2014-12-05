@@ -26,7 +26,7 @@ public class ParserLieu extends DefaultHandler {
     private Lieu temp;
     private String current;
 
-    private String adresse = "a implementer";
+    private String adresse = "http://alexandreplaitant.ddns.net/ndl/";
 
     public List<Lieu> getListLieux(){
 
@@ -39,7 +39,7 @@ public class ParserLieu extends DefaultHandler {
             readerxml.setContentHandler(this);
 
             // On récupère l'objet InputStream depuis la méthode ci-dessous définie
-            InputStream is = new HttpMethodeGetRunnable().getInputStream("a implementer");
+            InputStream is = new HttpMethodeGetRunnable().getInputStream("lieu.php");
             // Si l'objet n'est pas null
             if(is != null){
                 // On le parse avec notre readerxml (appuyé par notre parserxml)
@@ -102,7 +102,23 @@ public class ParserLieu extends DefaultHandler {
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
             throws SAXException {
-
+        if(localName.equalsIgnoreCase("lieu")) {
+            listLieux.add(temp);
+        }
+        else {
+            if (localName.equalsIgnoreCase("id")) {
+                temp.setId(Integer.parseInt(current));
+            }
+            if (localName.equalsIgnoreCase("nom")) {
+                temp.setNom(current);
+            }
+            if (localName.equalsIgnoreCase("longitude")) {
+                temp.setLongitude(Float.parseFloat(current));
+            }
+            if (localName.equalsIgnoreCase("latitude")) {
+                temp.setLatitude(Float.parseFloat(current));
+            }
+        }
     }
     @Override
     public void characters(char ch[], int start, int length) {

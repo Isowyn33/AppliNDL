@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Lieu {
     private int id;
-    private int latitude;
-    private int longitude;
+    private float latitude;
+    private float longitude;
     private String nom;
     private List<String> listTypes;
 
@@ -13,11 +13,11 @@ public class Lieu {
 
     public void setId(int id){this.id = id;}
 
-    public int getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
@@ -29,11 +29,11 @@ public class Lieu {
         this.nom = nom;
     }
 
-    public int getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
